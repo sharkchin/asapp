@@ -3,11 +3,14 @@ __author__ = 'axia'
 from collections import Counter
 from Sampler import getNegSample
 from Sampler import getPosSample
+from Util import stopWords
 import operator
 
 sampleSize = 10
 posSample = getPosSample(sampleSize)
 negSample = getNegSample(sampleSize)
+posCount = Counter(' '.join(posSample).split(' '))
+negCount = Counter(' '.join(negSample).split(' '))
 
 def sortedWordMap(sample):
     dict = Counter(' '.join(sample).split(' '))
